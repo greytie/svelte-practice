@@ -8,6 +8,10 @@
 </div>
 
 <style>
+	h1 {
+		font-family: 'Glacial Indifference Regular';
+	}
+
 	.counter-container {
 		display: flex;
 		flex-direction: row;

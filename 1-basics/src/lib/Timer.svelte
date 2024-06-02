@@ -19,18 +19,32 @@
 </script>
 
 <div class="counter-element">
-	<div class="counter-display">Counter: {counter}</div>
+	<div class="counter-display">Timer: {counter}</div>
 	<div class="button-container">
-		<button on:click={startCounterHandler}>Start counter</button>
-		<button on:click={cancelCounter}>Cancel counter</button>
+		<button on:click={startCounterHandler}>Start</button>
+		<button on:click={cancelCounter}>Cancel</button>
 	</div>	
 </div>
 
 <style>
+	/*
+		Fonts from: https://www.fontsquirrel.com/tools/webfont-generator
+	*/
+	@font-face {
+		font-family: 'Glacial Indifference Bold';
+		src: url('/fonts/glacialindifference-bold-webfont.woff2');
+	}
+
+	@font-face {
+		font-family: 'Glacial Indifference Regular';
+		src: url('/fonts/glacialindifference-regular-webfont.woff2');
+	}
+
 	.counter-element {
 		display: flex;
 		flex-direction: column;
-		font-size: 8em;
+		font-size: 10em;
+		font-family: 'Glacial Indifference Regular';
 	}
 
 	.counter-display {
@@ -48,10 +62,14 @@
 		padding: 10px;
 		background-color: white;
 		border-radius: 12px;
+		font-size: 1.2rem;
+		font-family: 'Glacial Indifference Regular';
+		text-transform: capitalize;
 	}
 
 	button:hover {
-		background-color: lightgray;
+		background-color: black;
+		color: white;
 		cursor: pointer;
 	}
 </style>
