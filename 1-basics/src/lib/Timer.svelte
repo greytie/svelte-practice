@@ -1,11 +1,12 @@
 <script lang="ts">
-	let counter: number = 30;
+	export let timerDuration: number;
+	$: counter = timerDuration;
 	let currentTimeoutID: number;
 	let totalTimesRun = 0;
 
 	async function startCounterHandler() {
-		counter = 30;
-		for (let i = 0; i < 30; i++) {
+		counter = timerDuration;
+		for (let i = 0; i < timerDuration; i++) {
 			await new Promise((f) => currentTimeoutID = setTimeout(f, 1000));
 			console.log(currentTimeoutID);
 			counter--;
@@ -16,7 +17,7 @@
 
 	function cancelCounter() {
 		clearTimeout(currentTimeoutID);
-		counter = 30;
+		counter = timerDuration;
 	}
 </script>
 

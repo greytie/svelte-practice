@@ -4,7 +4,7 @@
 
 <h1>1-Basics</h1>
 <div class="counter-container">
-	<Timer></Timer>
+	<Timer timerDuration={60}></Timer>
 </div>
 
 <style>
