@@ -1,6 +1,7 @@
 <script lang="ts">
 	let counter: number = 30;
 	let currentTimeoutID: number;
+	let totalTimesRun = 0;
 
 	async function startCounterHandler() {
 		counter = 30;
@@ -10,6 +11,7 @@
 			counter--;
 			console.log(counter);
 		}
+		totalTimesRun++;
 	}
 
 	function cancelCounter() {
@@ -20,6 +22,9 @@
 
 <div class="counter-element">
 	<div class="counter-display">Timer: {counter}</div>
+	<div class="times-run-display">
+		runs: {totalTimesRun}
+	</div>
 	<div class="button-container">
 		<button on:click={startCounterHandler}>Start</button>
 		<button on:click={cancelCounter}>Cancel</button>
@@ -43,12 +48,21 @@
 	.counter-element {
 		display: flex;
 		flex-direction: column;
-		font-size: 10em;
-		font-family: 'Glacial Indifference Regular';
 	}
 
 	.counter-display {
+		font-size: 10em;
+		font-family: 'Glacial Indifference Regular';
 		text-transform: uppercase;
+	}
+
+	.times-run-display {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		font-family: 'Glacial Indifference Regular';
+		text-transform: uppercase;
+		padding: 20px;
 	}
 
 	.button-container {
