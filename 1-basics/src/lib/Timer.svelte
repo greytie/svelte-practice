@@ -1,28 +1,37 @@
 <script lang="ts">
+	import { beep } from './beep-sound'
+
 	export let timerDuration: number;
 	let counter = timerDuration;
 	let currentTimeoutID: number;
 	let totalTimesRun = 0;
+	let completed = false;
 
 	async function startCounterHandler() {
+		completed = false;
 		counter = timerDuration;
 		for (let i = 0; i < timerDuration; i++) {
 			await new Promise((f) => currentTimeoutID = setTimeout(f, 1000));
-			console.log(currentTimeoutID);
 			counter--;
 			console.log(counter);
 		}
 		totalTimesRun++;
+		completed = true;
+		beep();
 	}
 
 	function resetCounter() {
 		clearTimeout(currentTimeoutID);
 		counter = timerDuration;
+		completed = false;
 	}
 </script>
 
 <div class="counter-element">
-	<div class="counter-display">Timer: {counter}</div>
+	<div 
+		class="counter-display"
+		class:blink={completed}
+	>Timer: {counter}</div>
 	<div class="times-run-display">
 		runs: {totalTimesRun}
 	</div>
