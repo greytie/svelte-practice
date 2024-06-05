@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let timerDuration: number;
-	$: counter = timerDuration;
+	let counter = timerDuration;
 	let currentTimeoutID: number;
 	let totalTimesRun = 0;
 
@@ -52,7 +52,7 @@
 	}
 
 	.counter-display {
-		font-size: 10em;
+		font-size: 9em;
 		font-family: 'Glacial Indifference Regular';
 		text-transform: uppercase;
 	}

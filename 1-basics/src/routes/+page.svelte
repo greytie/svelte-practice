@@ -5,6 +5,7 @@
 <h1>1-Basics</h1>
 <div class="counter-container">
 	<div class="stacked-timers">
+		<Timer timerDuration={5}></Timer>
 		<Timer timerDuration={60}></Timer>
 		<Timer timerDuration={30}></Timer>
 	</div>	
@@ -24,6 +25,6 @@
 	.stacked-timers {
 		display: flex;
 		flex-direction: column;
-		gap: 10em;
+		gap: 6em;
 	}
 </style>
