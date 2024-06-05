@@ -31,7 +31,10 @@
 	<div 
 		class="counter-display"
 		class:blink={completed}
-	>Timer: {counter}</div>
+	>
+		<span class="timer-text">Timer:</span>
+		<span class="counter-text">{counter}</span>
+	</div>
 	<div class="times-run-display">
 		runs: {totalTimesRun}
 	</div>
@@ -64,6 +67,12 @@
 		font-size: 9em;
 		font-family: 'Glacial Indifference Regular';
 		text-transform: uppercase;
+		display: flex;
+		gap: 2rem;
+	}
+
+	.counter-text {
+		min-width: 2em;
 	}
 
 	.times-run-display {
