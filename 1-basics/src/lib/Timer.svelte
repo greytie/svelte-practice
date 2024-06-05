@@ -15,7 +15,7 @@
 		totalTimesRun++;
 	}
 
-	function cancelCounter() {
+	function resetCounter() {
 		clearTimeout(currentTimeoutID);
 		counter = timerDuration;
 	}
@@ -28,7 +28,7 @@
 	</div>
 	<div class="button-container">
 		<button on:click={startCounterHandler}>Start</button>
-		<button on:click={cancelCounter}>Cancel</button>
+		<button on:click={resetCounter}>Reset</button>
 	</div>	
 </div>
 
@@ -87,4 +87,14 @@
 		color: white;
 		cursor: pointer;
 	}
+
+	.blink {
+		animation: blink 1s step-start 0s infinite;
+	}
+	@keyframes blink {
+		50% {
+			opacity: 0.0;
+		}
+	}
+
 </style>
