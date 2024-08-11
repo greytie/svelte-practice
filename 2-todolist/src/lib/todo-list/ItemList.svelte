@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { Item } from "$lib";
+	import { ItemEntry } from "$lib";
+	import type { Item } from "$lib/storage/db";
+	import type { Observable } from "dexie";
 
-	export let items: any[]
+	export let items: Observable<Item[]>; 
 </script>
 
 <div>
-	{#each items as item}
-		<Item item={item}></Item>
-	{/each}
+	{#if $items}
+		{#each $items as item (item.id)}
+			<ItemEntry item={item}></ItemEntry>
+		{/each}
+	{/if}	
 </div>

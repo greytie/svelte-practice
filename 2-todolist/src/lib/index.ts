@@ -1,5 +1,5 @@
 import ItemList from "./todo-list/ItemList.svelte";
-import Item from "./item/Item.svelte";
+import ItemEntry from "./item/ItemEntry.svelte";
 
 export {ItemList}
-export {Item}
+export {ItemEntry}
