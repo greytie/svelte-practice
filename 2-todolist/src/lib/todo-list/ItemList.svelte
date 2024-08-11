@@ -1,12 +1,11 @@
 <script lang="ts">
+	import { Item } from "$lib";
+
 	export let items: any[]
 </script>
 
 <div>
 	{#each items as item}
-		<div>
-			<input type="checkbox"/>
-			<label for="An item">{item.label}</label>
-		</div>
+		<Item item={item}></Item>
 	{/each}
 </div>
