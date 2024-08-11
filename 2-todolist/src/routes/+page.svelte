@@ -18,10 +18,18 @@
 			console.error(err);
 		}
 	}
+
+	async function deleteItem(event: CustomEvent) {
+		try {
+			await db.items.delete(event.detail.itemID)
+		} catch (err) {
+			console.error(err);
+		}
+	}
 </script>
 
 <input type="text" bind:value={itemName} />
 <button on:click={addItem}>Add item</button>
 {#if $items}
-	<ItemList {items}></ItemList>
+	<ItemList on:deleteItem={deleteItem} items={items}></ItemList>
 {/if}

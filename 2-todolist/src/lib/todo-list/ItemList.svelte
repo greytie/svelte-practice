@@ -4,12 +4,13 @@
 	import type { Observable } from "dexie";
 
 	export let items: Observable<Item[]>; 
+
 </script>
 
 <div>
 	{#if $items}
 		{#each $items as item (item.id)}
-			<ItemEntry item={item}></ItemEntry>
+			<ItemEntry on:deleteItem item={item}></ItemEntry>
 		{/each}
-	{/if}	
+	{/if}
 </div>
