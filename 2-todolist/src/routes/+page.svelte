@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { db, type Item } from '$lib/storage/db';
 	import ItemList from '$lib/todo-list/ItemList.svelte';
-	import ItemEntry from '$lib/item/ItemEntry.svelte';
 	import { liveQuery, type Observable } from 'dexie';
 
 	let items: Observable<Item[]> = liveQuery(() => db.items.toArray());
