@@ -27,9 +27,31 @@
 		}
 	}
 </script>
+<header>
+	<h1>ToDo List</h1>
+</header>
+<div class="list-container">
+	<input type="text" bind:value={itemName} />
+	<button on:click={addItem}>Add item</button>
+	{#if $items}
+		<ItemList on:deleteItem={deleteItem} items={items}></ItemList>
+	{/if}
+</div>
 
-<input type="text" bind:value={itemName} />
-<button on:click={addItem}>Add item</button>
-{#if $items}
-	<ItemList on:deleteItem={deleteItem} items={items}></ItemList>
-{/if}
+<style>
+	header {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	header > h1 {
+		font-family: Arial, sans-serif 
+	}
+
+	.list-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+</style>
