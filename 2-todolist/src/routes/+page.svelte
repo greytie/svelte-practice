@@ -30,12 +30,16 @@
 <header>
 	<h1>ToDo List</h1>
 </header>
-<div class="list-container">
-	<input type="text" bind:value={itemName} />
-	<button on:click={addItem}>Add item</button>
-	{#if $items}
-		<ItemList on:deleteItem={deleteItem} items={items}></ItemList>
-	{/if}
+<div class="content-container">
+	<div class="content-column">
+		<div class="input-container">
+			<input type="text" bind:value={itemName} />
+			<button on:click={addItem}>Add item</button>
+		</div>	
+		{#if $items}
+			<ItemList on:deleteItem={deleteItem} items={items}></ItemList>
+		{/if}
+	</div>
 </div>
 
 <style>
@@ -49,9 +53,14 @@
 		font-family: Arial, sans-serif 
 	}
 
-	.list-container {
+	.content-container {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
+	}
+
+	.content-column {
+		display: flex;
+		flex-direction: column;
 	}
 </style>

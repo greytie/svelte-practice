@@ -7,10 +7,17 @@
 
 </script>
 
-<div>
+<div class="item-list">
 	{#if $items}
 		{#each $items as item (item.id)}
 			<ItemEntry on:deleteItem item={item}></ItemEntry>
 		{/each}
 	{/if}
 </div>
+
+<style>
+	.item-list{
+		display: flex;
+		flex-direction: column;
+	}
+</style>
