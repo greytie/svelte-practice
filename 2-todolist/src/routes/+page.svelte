@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { db, type Item } from '$lib/storage/db';
+	import type { Tab } from '$lib/tabs/tab';
+	import TabbedContainer from '$lib/tabs/TabbedContainer.svelte';
 	import ItemList from '$lib/todo-list/ItemList.svelte';
 	import { liveQuery, type Observable } from 'dexie';
 
 	let items: Observable<Item[]> = liveQuery(() => db.items.toArray());
-
 	let itemName: string;
 
 	async function addItem() {
@@ -25,6 +26,21 @@
 			console.error(err);
 		}
 	}
+
+	let tabs: Tab[] = [
+		{
+			label: "Level 1",
+			id: 1
+		},
+		{
+			label: "Level 2",
+			id: 2
+		},
+		{
+			label: "Level 3",
+			id: 3
+		}
+	];
 </script>
 <header>
 	<h1>ToDo List</h1>
@@ -39,6 +55,12 @@
 			<ItemList on:deleteItem={deleteItem} items={items}></ItemList>
 		{/if}
 	</div>
+
+	
+</div>
+
+<div>
+	<TabbedContainer tabs={tabs}></TabbedContainer>
 </div>
 
 <style>

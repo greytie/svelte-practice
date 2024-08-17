@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import type { Item } from "$lib/storage/db";
 
-	export let item: Item
+	export let item: Item;
 	
 	const dispatch = createEventDispatcher();
 
